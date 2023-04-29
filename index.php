@@ -1,0 +1,192 @@
+<?php
+include_once('config/app.php');
+include_once '../Controller/viewCounter.php';
+include_once '../Controller/VerseOfTheDay.php';
+include_once '../Controller/inspirationalContent.php';
+include('../Controller/HadithOfTheDay.php');
+$hadith = new HadithOfTheDay();
+$viewcount = Counter::getInstance();
+$verse = new VerseOfTheDay();
+$content = new inspirationalContent();
+$viewcount->addOnce();
+
+include_once('includes/navbar.php');
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer App</title>
+    <link rel="stylesheet" href="assets/css/bootstrap5.min.css">
+    <link rel="stylesheet" href="custome.css">
+</head>
+<body>
+
+
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+            <?php include('message.php') ?>
+
+                
+                <h3>Home Page</h3>
+                
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section id="prayerTime">
+<div class="prayerTimesDiv">
+<iframe id="iframe" title="prayerWidget" class="widget-m-top" style=" height: 358px; border: 1px solid #ddd;" scrolling="no" src="https://www.islamicfinder.org/prayer-widget/360630/shafi/2/0/19.5/17.5"> </iframe>
+</div>
+
+
+</section>
+
+
+
+<section id="dailyHadithSection">
+    
+    <div class="container">  
+      <h3 style="color: white;">Inspiration Quotes</h3>      
+            <div class="container hadith-container">
+            <h6><?php if (isset($content)){
+                            $content->printContent();}
+                            else{
+                              echo('Database Error');
+                            } ?></h6>
+            </div>
+    </div> 
+</section>
+
+
+
+
+
+<section id="dailyPopularVerses">
+
+  <div class="container">  
+      <h3 style="color: #212529;">Verse From The Quran</h3>      
+            <div class="container verse-container">
+            <h6 class="verseText"><?php if (isset($verse)){
+                            $verse->printVerse();}
+                            else{
+                              echo('Database Error');
+                            } ?></h6>
+            </div>
+  </div>
+</section>
+
+
+
+
+<section id="dailyHadithSection">
+    
+    <div class="container">
+        
+            <div class="hadithContainerTitle">
+                <h3 style="color: white;">أحاديث الرسول ﷺ</h3>
+            </div>
+            <div class="container hadith-container">
+            <h6><?php $hadith->printHadith();?></h6>
+            </div>
+
+    </div>  
+</section>
+
+
+
+
+
+
+<section id="viewsCounter">
+  <div class="circle">
+    <h1><?php 
+    /* $is_page_refreshed = (isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] == 'max-age=0');
+      if($is_page_refreshed) {
+          $viewcount->addOnce();
+          $is_page_refreshed=true;
+        echo Counter::$count;
+      } else {
+        echo Counter::$count;
+      }
+     */
+
+   echo Counter::$count;
+
+     
+     ?></h1>
+    <p>Views Count</p>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="scholars">
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="..." class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="..." class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</section>
+
+
+
+
+
+
+
+<script src="assets/js/jQuery.min.js"></script>
+<script src="assets/js/bootstrap5.bundle.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+</body>
+</html>

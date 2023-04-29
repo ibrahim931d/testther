@@ -1,0 +1,124 @@
+body{
+    background-color: rgba(128, 128, 128, 0.498);
+   
+    
+    
+   
+}
+
+
+
+#prayerTimer{
+    display: flex;
+    justify-content: center;
+}
+
+.prayerTimesDiv{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    
+}
+
+#dailyHadithSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #212529;
+    height: 15rem;
+    width: 100%;
+    margin:  40px 0;
+    padding-bottom: 45px;
+}
+
+
+
+
+
+.hadith-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 10rem;
+    width: 75%;
+    border-radius: 25px;
+    color: rgb(227, 211, 211);
+    background-color: rgba(44, 122, 91, 0.74);
+    font-size: 20px;
+}
+
+.hadith-container h6{
+    font-size: 22px;
+    line-height: 2.5rem;
+}
+
+
+
+
+
+/*verses section*/
+
+#dailyPopularVerses{
+   
+   padding: 4rem;
+}
+
+
+.verse-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 10rem;
+    width: 75%;
+    border-radius: 25px;
+    color: rgb(227, 211, 211);
+    background-color: rgba(44, 122, 91, 0.9);
+    font-size: 40px;
+}
+.verse-container h6{
+    font-size: 18px;
+    line-height: 2rem;
+}
+
+/*end of verses section*/
+
+
+
+
+#viewsCounter{
+    width: 50%;
+    padding: 1.5rem 2rem;
+    margin: 40px 25%;
+   border-radius: 3rem;
+    background: #212529 ;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+}
+.circle{
+    width: 150px;
+    height:150px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom,
+     hsla(144, 78%, 50%, 0.587),
+      rgba(12, 57, 40, 0.835));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+}
+
+.circle h1{
+    color: white;
+    font-size: 4rem;
+}
+
+.circle p{
+    color: hsl(241, 100%, 89%);
+}
+
+
